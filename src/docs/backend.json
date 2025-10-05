@@ -1,0 +1,413 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "User Profile",
+      "type": "object",
+      "description": "Represents a user's profile information.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "user",
+            "admin",
+            "company"
+          ],
+          "description": "The user's role."
+        },
+        "displayName": {
+          "type": "string",
+          "description": "The user's display name."
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "URL of the user's profile picture."
+        },
+        "skills": {
+          "type": "array",
+          "description": "List of the user's skills.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "headline": {
+          "type": "string",
+          "description": "A short bio or headline for the user's profile."
+        },
+        "location": {
+          "type": "string",
+          "description": "The user's location or preferred work location."
+        },
+        "availability": {
+          "type": "string",
+          "description": "The user's work availability preference (e.g., Remote/On-site)."
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "role"
+      ]
+    },
+    "Candidate": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Candidate",
+      "type": "object",
+      "description": "Represents a candidate seeking internship recommendations.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Candidate entity."
+        },
+        "education": {
+          "type": "string",
+          "description": "Candidate's educational background."
+        },
+        "skills": {
+          "type": "array",
+          "description": "List of candidate's skills.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "sectorInterests": {
+          "type": "array",
+          "description": "List of sectors the candidate is interested in.",
+          "items": {
+            "type": "string"
+          }
+        },
+        "location": {
+          "type": "string",
+          "description": "Candidate's preferred location for internships."
+        },
+        "affirmativeAction": {
+          "type": "boolean",
+          "description": "Indicates if the candidate is eligible for affirmative action policies."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N Candidate)"
+        }
+      },
+      "required": [
+        "id",
+        "education",
+        "skills",
+        "sectorInterests",
+        "location",
+        "affirmativeAction",
+        "userId"
+      ]
+    },
+    "Internship": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Internship",
+      "type": "object",
+      "description": "Represents an internship opportunity.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Internship entity."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the internship."
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of the internship."
+        },
+        "company": {
+            "type": "string",
+            "description": "Company offering the internship."
+        },
+        "sector": {
+          "type": "string",
+          "description": "Industry sector of the internship."
+        },
+        "location": {
+          "type": "string",
+          "description": "Location of the internship."
+        },
+        "capacity": {
+          "type": "number",
+          "description": "Number of available positions in the internship."
+        },
+        "skillsRequired": {
+          "type": "array",
+          "description": "List of skills required for the internship.",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "company",
+        "sector",
+        "location",
+        "capacity",
+        "skillsRequired"
+      ]
+    },
+    "Recommendation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Recommendation",
+      "type": "object",
+      "description": "Represents an internship recommendation for a candidate.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the Recommendation entity."
+        },
+        "candidateId": {
+          "type": "string",
+          "description": "Reference to Candidate. (Relationship: Candidate 1:N Recommendation)"
+        },
+        "internshipId": {
+          "type": "string",
+          "description": "Reference to Internship. (Relationship: Internship 1:N Recommendation)"
+        },
+        "ranking": {
+          "type": "number",
+          "description": "Ranking of the recommendation based on AI engine's analysis."
+        }
+      },
+      "required": [
+        "id",
+        "candidateId",
+        "internshipId",
+        "ranking"
+      ]
+    },
+    "FAQ": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "FAQ",
+      "type": "object",
+      "description": "Represents a frequently asked question.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the FAQ entity."
+        },
+        "question": {
+          "type": "string",
+          "description": "The frequently asked question."
+        },
+        "answer": {
+          "type": "string",
+          "description": "The answer to the frequently asked question."
+        }
+      },
+      "required": [
+        "id",
+        "question",
+        "answer"
+      ]
+    },
+    "ChatMessage": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ChatMessage",
+      "type": "object",
+      "description": "Represents a message exchanged in the chatbot.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the ChatMessage entity."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to User. (Relationship: User 1:N ChatMessage)"
+        },
+        "message": {
+          "type": "string",
+          "description": "The content of the message."
+        },
+        "timestamp": {
+          "type": "string",
+          "description": "Timestamp of when the message was sent.",
+          "format": "date-time"
+        },
+        "isUserMessage": {
+          "type": "boolean",
+          "description": "Indicates whether the message was sent by the user or the chatbot."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "message",
+        "timestamp",
+        "isUserMessage"
+      ]
+    },
+    "PortfolioItem": {
+      "title": "Portfolio Item",
+      "type": "object",
+      "description": "Represents a user's portfolio item, like a certificate, project, or article.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the portfolio item."
+        },
+        "userId": {
+          "type": "string",
+          "description": "The ID of the user who owns this item."
+        },
+        "title": {
+          "type": "string",
+          "description": "The title of the portfolio item."
+        },
+        "description": {
+          "type": "string",
+          "description": "A brief description of the item."
+        },
+        "type": {
+          "type": "string",
+          "enum": ["Certificate", "Project", "Article", "Video", "Other"],
+          "description": "The type of portfolio item."
+        },
+        "contentUrl": {
+          "type": "string",
+          "description": "URL to the content (e.g., file in Firebase Storage, external link)."
+        },
+        "thumbnailUrl": {
+          "type": "string",
+          "description": "URL to a thumbnail image for display (optional)."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The timestamp when the item was created."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "title",
+        "type",
+        "contentUrl",
+        "createdAt"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password"
+    ]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/backend/entities/UserProfile"
+      },
+      "description": "Stores user profiles. Each user can only read and write their own profile.",
+      "seed": [
+        {
+          "id": "admin-user",
+          "email": "admin@example.com",
+          "role": "admin",
+          "displayName": "Admin User"
+        },
+        {
+          "id": "company-user",
+          "email": "company@example.com",
+          "role": "company",
+          "displayName": "Company User"
+        }
+      ]
+    },
+    "/internships/{internshipId}": {
+      "schema": {
+        "$ref": "#/backend/entities/Internship"
+      },
+      "description": "Stores internship opportunities. Read access is public, write access is restricted to admins.",
+      "seed": [
+        {
+          "id": "swe-google-1",
+          "title": "Software Engineering Intern",
+          "description": "Work on cutting-edge projects at Google. You'll be embedded in a team and work on a real product.",
+          "company": "Google",
+          "sector": "Technology",
+          "location": "Mountain View, CA",
+          "capacity": 50,
+          "skillsRequired": ["C++", "Java", "Python"]
+        },
+        {
+            "id": "pm-microsoft-1",
+            "title": "Product Manager Intern",
+            "description": "Define and ship products at Microsoft. You'll work with engineers, designers, and marketers.",
+            "company": "Microsoft",
+            "sector": "Technology",
+            "location": "Redmond, WA",
+            "capacity": 20,
+            "skillsRequired": ["Product Management", "Data Analysis", "User Research"]
+        },
+        {
+            "id": "ds-amazon-1",
+            "title": "Data Scientist Intern",
+            "description": "Analyze large datasets to extract meaningful insights. You'll build models and present findings.",
+            "company": "Amazon",
+            "sector": "E-commerce",
+            "location": "Seattle, WA",
+            "capacity": 30,
+            "skillsRequired": ["Python", "R", "SQL", "Machine Learning"]
+        },
+        {
+            "id": "finance-jpmorgan-1",
+            "title": "Financial Analyst Intern",
+            "description": "Join our investment banking team and work on live deals. You will learn valuation, modeling, and more.",
+            "company": "JPMorgan Chase",
+            "sector": "Finance",
+            "location": "New York, NY",
+            "capacity": 40,
+            "skillsRequired": ["Finance", "Excel", "Valuation"]
+        },
+        {
+            "id": "marketing-coke-1",
+            "title": "Marketing Intern",
+            "description": "Help shape the voice of one of the world's most recognizable brands. Work on campaigns and strategy.",
+            "company": "Coca-Cola",
+            "sector": "Consumer Goods",
+            "location": "Atlanta, GA",
+            "capacity": 15,
+            "skillsRequired": ["Marketing", "Social Media", "Content Creation"]
+        },
+        {
+            "id": "design-airbnb-1",
+            "title": "UX/UI Design Intern",
+            "description": "Design beautiful and intuitive user experiences for our global community. Work on our core product.",
+            "company": "Airbnb",
+            "sector": "Hospitality",
+            "location": "San Francisco, CA",
+            "capacity": 10,
+            "skillsRequired": ["UX Design", "UI Design", "Figma", "User Research"]
+        }
+      ]
+    },
+    "/faqs/{faqId}": {
+      "schema": {
+        "$ref": "#/backend/entities/FAQ"
+      },
+      "description": "Stores frequently asked questions. Read access is public, write access is restricted to admins."
+    },
+     "/users/{userId}/portfolio/{itemId}": {
+      "schema": {
+        "$ref": "#/backend/entities/PortfolioItem"
+      },
+      "description": "Stores portfolio items for a specific user. Users can create, read, update, and delete their own items."
+    }
+  }
+}
+    

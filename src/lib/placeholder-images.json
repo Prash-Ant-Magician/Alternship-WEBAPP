@@ -1,0 +1,10 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero",
+      "description": "A person working on a laptop in a modern office.",
+      "imageUrl": "https://images.unsplash.com/photo-1462826303086-329426d1aef5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxvZmZpY2UlMjB3b3Jrc3BhY2V8ZW58MHx8fHwxNzU5MzUyNTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "office workspace"
+    }
+  ]
+}
