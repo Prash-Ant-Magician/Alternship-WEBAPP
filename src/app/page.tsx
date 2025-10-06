@@ -69,7 +69,7 @@ export default function Home() {
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    placeholder="Search internships, companies, skills..."
+                    placeholder="Search"//internships, companies, skills...
                     className="flex-1 bg-transparent outline-none text-slate-700 placeholder-slate-400 text-lg"
                   />
                   <button type="submit" className="bg-gradient-to-r from-blue-600 to-teal-600 text-white px-8 py-3 rounded-xl font-medium hover:shadow-lg hover:scale-105 transition-all">
