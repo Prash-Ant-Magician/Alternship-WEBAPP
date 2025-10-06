@@ -148,6 +148,11 @@
           "items": {
             "type": "string"
           }
+        },
+        "applicationUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "The URL to the internship application page."
         }
       },
       "required": [
@@ -342,7 +347,8 @@
           "sector": "Technology",
           "location": "Mountain View, CA",
           "capacity": 50,
-          "skillsRequired": ["C++", "Java", "Python"]
+          "skillsRequired": ["C++", "Java", "Python"],
+          "applicationUrl": "https://careers.google.com/students/"
         },
         {
             "id": "pm-microsoft-1",
@@ -352,7 +358,8 @@
             "sector": "Technology",
             "location": "Redmond, WA",
             "capacity": 20,
-            "skillsRequired": ["Product Management", "Data Analysis", "User Research"]
+            "skillsRequired": ["Product Management", "Data Analysis", "User Research"],
+            "applicationUrl": "https://careers.microsoft.com/v2/global/en/university-and-early-career.html"
         },
         {
             "id": "ds-amazon-1",
@@ -362,7 +369,8 @@
             "sector": "E-commerce",
             "location": "Seattle, WA",
             "capacity": 30,
-            "skillsRequired": ["Python", "R", "SQL", "Machine Learning"]
+            "skillsRequired": ["Python", "R", "SQL", "Machine Learning"],
+            "applicationUrl": "https://www.amazon.jobs/en/business_categories/student-programs"
         },
         {
             "id": "finance-jpmorgan-1",
@@ -372,7 +380,8 @@
             "sector": "Finance",
             "location": "New York, NY",
             "capacity": 40,
-            "skillsRequired": ["Finance", "Excel", "Valuation"]
+            "skillsRequired": ["Finance", "Excel", "Valuation"],
+            "applicationUrl": "https://careers.jpmorgan.com/global/en/students/programs"
         },
         {
             "id": "marketing-coke-1",
@@ -382,7 +391,8 @@
             "sector": "Consumer Goods",
             "location": "Atlanta, GA",
             "capacity": 15,
-            "skillsRequired": ["Marketing", "Social Media", "Content Creation"]
+            "skillsRequired": ["Marketing", "Social Media", "Content Creation"],
+            "applicationUrl": "https://www.coca-colacompany.com/careers/early-career"
         },
         {
             "id": "design-airbnb-1",
@@ -392,7 +402,8 @@
             "sector": "Hospitality",
             "location": "San Francisco, CA",
             "capacity": 10,
-            "skillsRequired": ["UX Design", "UI Design", "Figma", "User Research"]
+            "skillsRequired": ["UX Design", "UI Design", "Figma", "User Research"],
+            "applicationUrl": "https://careers.airbnb.com/university/"
         }
       ]
     },
@@ -410,4 +421,5 @@
     }
   }
 }
+
     

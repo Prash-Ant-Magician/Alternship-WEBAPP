@@ -39,6 +39,7 @@ export type Internship = {
     capacity: number;
     skillsRequired: string[];
     description: string;
+    applicationUrl?: string;
 }
 
 export type FAQ = {

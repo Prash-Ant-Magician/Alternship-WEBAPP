@@ -26,6 +26,7 @@ const allInternships: Internship[] = (backendData.firestore?.['/internships/{int
     location: internship.location,
     capacity: internship.capacity,
     skillsRequired: internship.skillsRequired,
+    applicationUrl: internship.applicationUrl,
 }));
 
 
@@ -77,6 +78,7 @@ const InternshipSearchOutputSchema = z.object({
       sector: z.string(),
       skillsRequired: z.array(z.string()),
       capacity: z.number().optional().default(1),
+      applicationUrl: z.string().url().optional(),
     })
   ).describe('A list of relevant internship listings found.'),
 });
@@ -129,3 +131,5 @@ const internshipSearchFlow = ai.defineFlow(
     return { internships: results };
   }
 );
+
+    

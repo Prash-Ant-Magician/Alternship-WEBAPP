@@ -37,9 +37,9 @@ function RecommendationCard({ recommendation }: { recommendation: InternshipReco
             <MapPin className="h-4 w-4 text-muted-foreground"/>
             <Badge variant="secondary">{recommendation.location}</Badge>
         </div>
-        <Button asChild className="w-full" variant="outline">
+        <Button asChild className="w-full">
           <a href={recommendation.url} target="_blank" rel="noopener noreferrer">
-            {t.recommendationList.learnMore} <ArrowUpRight className="ml-2 h-4 w-4" />
+            Apply Now <ArrowUpRight className="ml-2 h-4 w-4" />
           </a>
         </Button>
       </CardFooter>
